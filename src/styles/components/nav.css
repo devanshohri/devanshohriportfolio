@@ -7,6 +7,7 @@ nav {
   grid-column-gap: var(--gutter);
   grid-row-gap: var(--gutter);
   grid-template-rows: auto auto;
+  align-items: end;
 }
 
 .header-logo {
@@ -32,4 +33,56 @@ nav {
 
 .hero-text{
   grid-area: 3 / 1 / 5 / 6;
+}
+
+/*==============*/
+
+
+.nav-fixed {
+  position: fixed;
+  top: -80px; /* hidden above view */
+  left: 0;
+  width: 100%;
+  background: white;
+  transition: top 0.4s ease;
+  z-index: 100;
+  padding: var(--padding) var(--padding) 0 var(--padding);
+}
+
+.nav-fixed.visible {
+  top: 0; /* slides down */
+}
+
+.nav-fixed .main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  grid-column-gap: var(--gutter);
+  grid-row-gap: var(--gutter);
+  grid-template-rows: auto ;
+}
+
+.header-logo-small {
+  grid-column: 1/3;
+}
+
+.nav-fixed-work {
+  grid-column: 9/10;
+}
+
+.nav-fixed-archive {
+  grid-column: 10/11;
+}
+
+.nav-fixed-info {
+  grid-column: 11/12;
+}
+
+.nav-fixed-time {
+  grid-column: 12 / 13;
+  text-align: right;
+}
+
+.hr-nav {
+  margin: var(--padding) 0 0 0;
 }

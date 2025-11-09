@@ -24,22 +24,28 @@ export default function Information() {
           </div>
 
           <div className="info-info">
-            <hr />
+
+            <hr className='info-info-hr' />
+
             <div className="info-contact">
               <p className="info-contact-title accent">Contact</p>
-              <div className="info-text" style={{ gap: "calc(var(--gap)/1.5)" }}>
+              <div className="info-text">
                 <a className='hua ' href="mailto:devanshohri@gmail.com"> Email ↗</a>
                 <a href="https://www.linkedin.com/in/devanshohri/" className="hua ">Linkedin ↗</a>
                 <a href="https://www.instagram.com/devanshohri/" className="hua ">Instagram ↗</a>
               </div>
             </div>
 
+            <hr className='info-info-hr' />
+
             <div className="info-docs">
-              <p className="mono grey">Docs</p>
+              <p className="accent">Docs</p>
               <div className="info-text">
                 <a className='hua' href="/resume/devansh_ohri_resume.pdf" target='_blank'> Resume.pdf ↗</a>
               </div>
             </div>
+
+            <hr className='info-info-hr' />
 
             <div className="info-discipline">
               <p className="accent">Discipline</p>
@@ -53,6 +59,8 @@ export default function Information() {
               </div>
             </div>
 
+            <hr className='info-info-hr' />
+
             <div className="info-tools">
               <p className="accent">Tools</p>
               <div className="info-text">
@@ -65,12 +73,21 @@ export default function Information() {
               </div>
             </div>
 
+            <hr className='info-info-hr' />
+
             <div className="info-education">
-              <p className="accent">education</p>
+              <p className="accent">Education</p>
               <div className="info-text">
                 <p className=''>BA Interactive Media from Tampere University of Applied Sciences</p>
               </div>
             </div>
+          </div>
+
+          <div className="info-image" data-cursor="*person in the image is not as serious as he appears">
+            <Image
+             src={devansh}
+             alt="devansh ohri's very serious portrait"
+           />           
           </div>
         </section>
       </div>

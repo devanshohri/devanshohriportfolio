@@ -1,61 +1,95 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import devanshOhriLogo from "../../public/devanshohri.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LocalTime from "./LocalTime";
 
 export default function Nav() {
-
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isArchive = pathname === "/archive";
-  const isInformation = pathname === "/information";
+
+  const navRef = useRef(null);
+  const [showFixed, setShowFixed] = useState(false);
+
+  useEffect(() => {
+    const target = navRef.current;
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowFixed(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <header>
-      <nav className="nav-default main-grid">
-        <div className="header-logo">
-          <Image
-            priority
-            src= {devanshOhriLogo}
-            alt="devansh ohri logo"
-          />
-        </div>
+    <>
+      <header>
+        <nav className="nav-default main-grid">
+          <Link href="/" className="header-logo">
+            <Image priority src={devanshOhriLogo} alt="devansh ohri logo" as="image"/>
+          </Link>
 
-        {isHome && (
-          <div className="hero-text">
-            <h1>
-              I’m a Finland-based digital designer focused on creating digital
-              experiences — websites, apps, platforms, and everything in
-              between.
-            </h1>
+          {isHome && (
+            <div className="hero-text">
+              <h1>
+                I’m a Finland-based digital designer focused on creating digital
+                experiences — websites, apps, platforms, and everything in
+                between.
+              </h1>
+            </div>
+          )}
+
+          {isArchive && (
+            <div className="hero-text">
+              <h1>
+                A collection of my visual explorations.
+                Web, posters, graphics, etc.
+              </h1>
+            </div>
+          )}
+
+          <div ref={navRef} className="nav-default-work">
+            <Link href="/" className="hua">Work</Link>
           </div>
-        )}
-
-        {isArchive && (
-          <div className="hero-text">
-            <h1>
-              A collection of my visual explorations.
-              Web, posters, graphics, etc.
-            </h1>
+          <div className="nav-default-archive">
+            <Link href="/archive" className="hua">Archive</Link>
           </div>
-        )}
+          <div className="nav-default-info">
+            <Link href="/information" className="hua">Information</Link>
+          </div>
+          <div className="nav-default-time">
+            <p><LocalTime /> HEL, FI</p>
+          </div>
+        </nav>
+      </header>
 
-     
+      <nav className={`nav-fixed ${showFixed ? "visible" : ""}`}>
+        <div className="main-grid">
+          <div className="header-logo-small">
+            <Link href="/"><p className="logo">Devansh Ohri</p></Link>
+          </div>
 
-        <div className="nav-default-work">
-          <Link href="/" className="hua">Work</Link>
+          <div className="nav-fixed-work">
+            <Link href="/" className="hua">Work</Link>
+          </div>
+          <div className="nav-fixed-archive">
+            <Link href="/archive" className="hua">Archive</Link>
+          </div>
+          <div className="nav-fixed-info">
+            <Link href="/information" className="hua">Information</Link>
+          </div>  
+          <div className="nav-fixed-time">
+            <p><LocalTime /> HEL, FI</p>
+          </div>
         </div>
-        <div className="nav-default-archive">
-          <Link href="/archive" className="hua">Archive</Link>
-        </div>
-        <div className="nav-default-info">
-          <Link href="/information" className="hua">Information</Link>
-        </div>
-        <div className="nav-default-time">
-          <p>09.21 EET</p>
-        </div>
+        <hr className="hr-nav"/>
       </nav>
-    </header>
+    </>
   );
 }

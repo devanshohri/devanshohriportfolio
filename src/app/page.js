@@ -31,7 +31,7 @@ export default function Home() {
       <hr />
       <section className="work">
 
-        <a href="" className='work-container work-1 main-grid'>
+        <a  className='work-container work-1 main-grid' data-cursor="Case Study coming soon ↗">
           <div className="work-index">
             <p className="accent">01</p>
           </div>
@@ -42,22 +42,26 @@ export default function Home() {
           <Image
             src={mepomain1}
             className='mepo-main-1'
+            alt='MepoNET Home Screen'
           />
           <Image
             src={mepomain2}
             className='mepo-main-2'
+            alt='MepeNET mobile layout'
           />
           <Image
             src={mepomain3}
             className='mepo-main-3'
+            alt='Design Tokens for MepoNET'
           />
           <Image
             src={mepomain4}
             className='mepo-main-4'
+            alt='Design System for MepoNET'
           />
         </a>
 
-        <a href="" className='work-container work-2 main-grid'>
+        <a href="" className='work-container work-2 main-grid' data-cursor="Coming Soon ↗">
           <div className="work-index">
             <p className="accent">02</p>
           </div>
@@ -68,24 +72,28 @@ export default function Home() {
           <Image
             src={kukkiva1}
             className='kukkiva-main-1'
+            alt= "Kukkiva Taide's Wordmark"
           />
           <Image
             src={kukkiva2}
             className='kukkiva-main-2'
+            alt="Kukkiva Taide's Website"
           />
           <VideoPlayer 
             className='kukkiva-main-3' 
             videoUrl="https://cdn.devanshohri.com/kukkiva-main-4.mov" 
-            thumbnail="./images/" 
-            alt="User Flow"
+            thumbnail="" 
+            alt="Kukkiva Taide's Icon Mark"
           />
           <Image
             src={kukkiva4}
             className='kukkiva-main-4'
+            alt= "Kukkiva Taide's Business Card"
           />
           <Image
             src={kukkiva5}
             className='kukkiva-main-5'
+            alt= "Kukkiva Taide's Thank you card"
           />
         </a>
 
@@ -100,8 +108,8 @@ export default function Home() {
           <div className="pienet-koneet-main">
             <VideoPlayer 
               videoUrl="https://cdn.devanshohri.com/pienet_koneet-_title%20(1080p).mp4" 
-              thumbnail="./images/" 
-              alt="User Flow"
+              thumbnail="" 
+              alt="Pienet Koneet Title Animation"
             />
           </div>
         </a>
@@ -117,8 +125,8 @@ export default function Home() {
           <div className="blumaan-main">
             <VideoPlayer 
               videoUrl="https://cdn.devanshohri.com/promo_-_blumaan%20(1080p).mp4" 
-              thumbnail="./images/" 
-              alt="User Flow"
+              thumbnail="" 
+              alt="Bluuman Promotional Video"
             />
           </div>
         </a>
@@ -134,8 +142,8 @@ export default function Home() {
           <div className="illvzn-main">
             <VideoPlayer 
               videoUrl="https://cdn.devanshohri.com/illvzn.mp4" 
-              thumbnail="./images/" 
-              alt="User Flow"
+              thumbnail="" 
+              alt="Illvzn x OTB Promotional Video"
             />
           </div>
         </a>

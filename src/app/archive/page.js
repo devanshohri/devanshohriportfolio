@@ -16,10 +16,11 @@ export default function Archive() {
     <main>
       <div className="container">
         <Nav />
+        <hr />
         <section className="archive main-grid">
 
           <div className="archive-container" style={{gridArea: '1 / 1 / 2 / 3'}}>
-            <VideoPlayer videoUrl="https://cdn.devanshohri.com/archive-videos/do-arch-01.mp4" thumbnail="./images/" alt="User Flow" style={{borderRadius:'2.5vw'}}/>
+            <VideoPlayer videoUrl="https://cdn.devanshohri.com/archive-videos/do-arch-01.mp4" thumbnail="" alt="User Flow" style={{borderRadius:'2.5vw'}}/>
             <p className='mono accent'>01</p>
             <p className="mono">User Flow Task</p>
           </div>
@@ -37,13 +38,13 @@ export default function Archive() {
           </div>
 
           <div className="archive-container" style={{gridArea: '2 / 3 / 3 / 6'}}>
-            <VideoPlayer videoUrl="https://cdn.devanshohri.com/archive-videos/nike.mp4" thumbnail="./images/" alt="3d spinning logo" />
+            <VideoPlayer videoUrl="https://cdn.devanshohri.com/archive-videos/nike.mp4" thumbnail="" alt="3d spinning logo" />
             <p className='mono accent'>05</p>
             <p className="mono">3d logo</p>
           </div>
 
           <div className="archive-container" style={{gridArea: '2 / 10 / 3 / 12'}}>
-            <VideoPlayer videoUrl="https://cdn.devanshohri.com/archive-videos/designflows2025.mp4" thumbnail="./images/" alt="designflows ux challenege" style={{borderRadius:'2.5vw'}}/>
+            <VideoPlayer videoUrl="https://cdn.devanshohri.com/archive-videos/designflows2025.mp4" thumbnail="" alt="designflows ux challenege" style={{borderRadius:'2.5vw'}}/>
             <p className='mono accent'>06</p>
             <p className="mono">Designflows 2025</p>
           </div>
@@ -55,7 +56,7 @@ export default function Archive() {
           </div>
 
           <div className="archive-container" style={{gridArea: '3 / 7 / 4 / 10'} }>
-            <VideoPlayer videoUrl="https://cdn.devanshohri.com/archive-videos/eken.mp4" thumbnail="./images/" alt="Motion cards" />
+            <VideoPlayer videoUrl="https://cdn.devanshohri.com/archive-videos/eken.mp4" thumbnail="" alt="Motion cards" />
             <p className='mono accent'>08</p>
             <p className="mono">Branding motion</p>
           </div>

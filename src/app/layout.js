@@ -1,8 +1,11 @@
 import "./globals.css";
 import "../styles/components/nav.css";
 import "../styles/components/footer.css";
-
+import { ReactLenis } from "@/components/lenis"
+import CustomCursor from "@/components/CustomCursor";
 import Footer from '@/components/Footer';
+
+
 
 export const metadata = {
   title: "Devansh Ohri - Design Portfolio",
@@ -12,10 +15,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
+      <ReactLenis root>
       <body>
+        <div className="cursor"><p className="cursor-text"></p></div>
+        <CustomCursor />
         {children}
         <Footer />
       </body>
+      </ReactLenis>
     </html>
   );
 }

@@ -90,6 +90,14 @@ h2 {
   text-transform: uppercase;
 }
 
+.logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--p-size);
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -109,7 +117,34 @@ body {
   color: var(--secondary);
 }
 
-.container{
+.cursor {
+  z-index: 1000;
+  transition: opacity .375s cubic-bezier(.625, .05, 0, 1);
+  position: fixed;
+  inset: 0% auto auto 0%;
+  pointer-events: none;
+  mix-blend-mode: exclusion;
+  opacity: 0;
+}
+
+body:has([data-cursor]:hover) .cursor {
+  opacity: 1;
+}
+
+.cursor-text{
+  color: var(--primary);
+  mix-blend-mode: difference;
+  /* font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600; */
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}
+
+.container {
   padding: var(--padding);
 }
 
