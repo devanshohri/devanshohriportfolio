@@ -1,0 +1,35 @@
+nav {
+  width: 100%;
+  height: auto;
+}
+
+.nav-default {
+  grid-column-gap: var(--gutter);
+  grid-row-gap: var(--gutter);
+  grid-template-rows: auto auto;
+}
+
+.header-logo {
+  grid-area: 1 / 1 / 2 / 13;
+}
+
+.nav-default-work{
+  grid-area: 3 / 9 / 4 / 10;
+}
+
+.nav-default-archive{
+  grid-area: 3 / 10 / 4 / 11;
+}
+
+.nav-default-info{
+  grid-area: 3 / 11 / 4 / 12;
+}
+
+.nav-default-time{
+  grid-area: 3 / 12 / 4 / 13;
+  text-align: right;
+}
+
+.hero-text{
+  grid-area: 3 / 1 / 5 / 6;
+}

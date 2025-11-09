@@ -1,0 +1,101 @@
+.hero-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    padding-top: calc(var(--padding)*14);
+}
+
+.selected-work{
+    display: flex;
+    flex-direction: column;
+}
+
+.availability-cta{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.work{
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--padding)*10);
+    padding-top: calc(var(--padding)*3);
+}
+
+.work-container {
+    position: relative;
+    grid-column-gap: var(--gutter);
+    grid-row-gap: var(--gutter);
+    grid-template-rows: auto auto;
+    height: auto;
+}
+
+.work-index{
+    grid-area: 1/1/2/2;;
+}
+
+.work-title{
+    grid-area: 1/2/2/13;
+}
+
+.mepo-main-1{
+    grid-area: 2/1/3/9;
+}
+
+.mepo-main-2{
+    grid-area: 2/9/3/13;
+    width: 100%;
+    height: 100%;
+}
+
+.mepo-main-3{
+    grid-area: 3/1/4/5;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.mepo-main-4{
+    grid-area: 3/5/4/13;
+}
+
+.kukkiva-main-1{
+    grid-area: 2/1/3/6;
+}
+
+.kukkiva-main-2{
+    grid-area: 2/6/3/13;
+}
+
+.kukkiva-main-3{
+    grid-area: 3/1/4/5;
+}
+
+.kukkiva-main-4{
+    grid-area: 3/5/4/9;
+}
+
+.kukkiva-main-5{
+    grid-area: 3/9/4/13;
+}
+
+.pienet-koneet-main{
+    grid-area: 2/1/3/13;
+    background-color: #115e59;
+    padding: 4rem 10rem;
+}
+
+.blumaan-main{
+    grid-area: 2/1/3/13;
+    background-color: #F97316;
+    padding: 4rem 10rem;
+}
+
+.illvzn-main{
+    grid-area: 2/1/3/13;
+    background-color: #FF0312;
+    padding: 4rem 10rem;
+}

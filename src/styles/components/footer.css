@@ -1,0 +1,7 @@
+footer {
+  padding: var(--padding);
+  padding-bottom: var(--padding);
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+}

@@ -1,0 +1,15 @@
+.archive{
+  padding: var(--padding);
+  padding-top: calc(var(--padding) * 4);
+  grid-column-gap: var(--gutter);
+  grid-row-gap: var(--gutter);
+  aspect-ratio: auto;
+  grid-template-rows: auto auto;
+  place-items: start stretch;
+  height: auto;
+}
+
+.archive-container {
+  cursor: pointer;
+}
+

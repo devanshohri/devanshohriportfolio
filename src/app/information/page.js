@@ -1,0 +1,79 @@
+import '../../styles/pages/information.css';
+import Image from 'next/image';
+import devansh from '@/images/archive-images/dev.jpg'
+import Nav from '../../components/Nav';
+
+export default function Information() {
+  return (
+    <main>
+      <div className="container">
+        <Nav />
+        <section className="information main-grid">
+
+          <div className="info-hero-text">
+            <h1>
+              I'm Devansh, a multidisciplinary designer based in Finland.
+              Passionate about creating digital experiences through UX, motion, and brand design,
+              exploring how they work together to make things that feel intentional and engaging.
+            </h1>
+            <br />
+            <h1>
+              ljsdblcbnsldcjnlskdjncn hjBFJH b iewfiu wed dwieuhd piee hf IEUWF IWEFwe eowuf ewiuh dwe
+              kjwned iwehd qoqiwjd qowijd qowid oiqjwd hrig biwefn
+            </h1>
+          </div>
+
+          <div className="info-info">
+            <hr />
+            <div className="info-contact">
+              <p className="info-contact-title accent">Contact</p>
+              <div className="info-text" style={{ gap: "calc(var(--gap)/1.5)" }}>
+                <a className='hua ' href="mailto:devanshohri@gmail.com"> Email ↗</a>
+                <a href="https://www.linkedin.com/in/devanshohri/" className="hua ">Linkedin ↗</a>
+                <a href="https://www.instagram.com/devanshohri/" className="hua ">Instagram ↗</a>
+              </div>
+            </div>
+
+            <div className="info-docs">
+              <p className="mono grey">Docs</p>
+              <div className="info-text">
+                <a className='hua' href="/resume/devansh_ohri_resume.pdf" target='_blank'> Resume.pdf ↗</a>
+              </div>
+            </div>
+
+            <div className="info-discipline">
+              <p className="accent">Discipline</p>
+              <div className="info-text">
+                <p className=''>Digital Design</p>
+                <p className=''>UI/UX Design</p>
+                <p className=''>Visual Identity</p>
+                <p className=''>Motion Design</p>
+                <p className=''>Web Design</p>
+                <p className=''>Web Development</p>
+              </div>
+            </div>
+
+            <div className="info-tools">
+              <p className="accent">Tools</p>
+              <div className="info-text">
+                <p className=''>Figma</p>
+                <p className=''>Adobe Suite</p>
+                <p className=''>Blender 3D</p>
+                <p className=''>Next.js</p>
+                <p className=''>GSAP</p>
+                <p className=''><span className="grey">and many more...</span></p>
+              </div>
+            </div>
+
+            <div className="info-education">
+              <p className="accent">education</p>
+              <div className="info-text">
+                <p className=''>BA Interactive Media from Tampere University of Applied Sciences</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+}

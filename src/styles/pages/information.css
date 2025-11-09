@@ -1,0 +1,62 @@
+.information{
+  grid-column-gap: var(--gutter);
+  grid-row-gap: var(--gutter);
+  aspect-ratio: auto;
+  grid-template-rows: auto auto;
+  place-items: start stretch;
+  height: auto;
+}
+
+.info-hero-text{
+  grid-area: 1 / 1 / 12 / 7;
+}
+
+.info-info{
+  grid-area: 1 / 9 / 7 / 13;
+}
+
+
+
+
+.info-contact{
+  grid-area: 1 / 9 / 7 / 13;
+}
+
+
+.info-discipline{
+  grid-area: 5 / 8 / 6 / 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(var(--padding)/4);
+}
+
+
+.info-education{
+  grid-area:  7 / 8 / 8 / 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(var(--padding)/4);
+}
+
+.info-docs{
+  grid-area: 7 / 6 / 8 / 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(var(--padding)/4);
+}
+
+.info-tools{
+  grid-area: 5 / 10 / 6 / 12;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(var(--padding)/4);
+}
+
