@@ -23,28 +23,36 @@ export default function CustomCursor() {
     };
     window.addEventListener("mousemove", move);
 
-    // reselect links on every route change
-    const links = document.querySelectorAll("[data-cursor]");
-    links.forEach((link) => {
-      const text = link.getAttribute("data-cursor");
-      link.addEventListener("mouseenter", () => {
+    const cursortexts = document.querySelectorAll("[data-cursor]");
+    const handlers = [];
+
+    cursortexts.forEach((el) => {
+      const text = el.getAttribute("data-cursor");
+      const handleEnter = () => {
         gsap.to(".cursor p", {
-          scrambleText: { text, chars: "uppercase", speed: 2 },
+          scrambleText: { text, chars: "►", speed: 2 },
           duration: 0.8,
         });
-      });
-      link.addEventListener("mouseleave", () => {
-        gsap.to(".cursor p", { scrambleText: { text: "", speed: 2 }, duration: 0.5 });
-      });
+      };
+      const handleLeave = () => {
+        gsap.to(".cursor p", {
+          scrambleText: { text: "", chars: "◄", speed: 2 },
+          duration: 0.5,
+        });
+      };
+      el.addEventListener("mouseenter", handleEnter);
+      el.addEventListener("mouseleave", handleLeave);
+      handlers.push({ el, handleEnter, handleLeave });
     });
 
     return () => {
       window.removeEventListener("mousemove", move);
-      links.forEach((link) => {
-        link.replaceWith(link.cloneNode(true)); // safely remove listeners
+      handlers.forEach(({ el, handleEnter, handleLeave }) => {
+        el.removeEventListener("mouseenter", handleEnter);
+        el.removeEventListener("mouseleave", handleLeave);
       });
     };
-  }, [pathname]); // re-run on route change
+  }, [pathname]);
 
   return null;
 }

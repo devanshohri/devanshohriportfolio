@@ -12,3 +12,92 @@
   cursor: pointer;
 }
 
+.arch01{
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.arch02{
+  grid-area: 1 / 5 / 2 / 7;
+}
+
+.arch03{
+  grid-area: 1 / 8 / 2 / 13;
+}
+
+.arch04{
+  grid-area: 2 / 3 / 3 / 6;
+}
+
+.arch05{
+  grid-area: 2 / 10 / 3 / 12;
+}
+
+.arch06{
+  grid-area: 3 / 1 / 4 / 4;
+}
+
+.arch07{
+  grid-area: 3 / 7 / 4 / 10;
+}
+
+.arch08{
+  grid-area: 3 / 10 / 4 / 13;
+}
+
+.arch09{
+  grid-area: 4 / 2 / 5 / 5;
+}
+
+.arch010{
+  grid-area: 4 / 8 / 5 / 11;
+}
+
+@media (max-width: 575.98px) {
+
+  .archive{
+  padding: var(--padding);
+  grid-column-gap: var(--gutter);
+  grid-row-gap: calc(var(--gutter)*3);
+}
+
+.arch01{
+  grid-area: 1 / 1 / 2 / 5;
+}
+
+.arch02{
+  grid-area: 2 / 1 / 3 / 5;
+}
+
+.arch03{
+  grid-area: 3 / 1 / 4 / 5;
+}
+
+.arch04{
+  grid-area: 4 / 1 / 5 / 5;
+}
+
+.arch05{
+  grid-area: 5 / 1 / 6 / 5;
+}
+
+.arch06{
+  grid-area: 6 / 1 / 7 / 5;
+}
+
+.arch07{
+  grid-area: 7 / 1 / 8 / 5;
+}
+
+.arch08{
+  grid-area: 8 / 1 / 9 / 5;
+}
+
+.arch09{
+  grid-area: 9 / 1 / 10 / 5;
+}
+
+.arch010{
+  grid-area: 10 / 1 / 11 / 5;
+}
+
+}

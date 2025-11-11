@@ -13,6 +13,9 @@ import kukkiva2 from '@/images/kukkiva/kukkiva-main-2.webp'
 import kukkiva4 from '@/images/kukkiva/kukkiva-main-3.webp'
 import kukkiva5 from '@/images/kukkiva/kukkiva-main-5.webp'
 
+import flyers1 from '@/images/flyers/flyers-main-1.webp'
+import flyers2 from '@/images/flyers/flyers-main-2.webp'
+
 
 export default function Home() {
   return (
@@ -31,7 +34,7 @@ export default function Home() {
       <hr />
       <section className="work">
 
-        <a  className='work-container work-1 main-grid' data-cursor="Case Study coming soon ↗">
+        <a  className='work-container work-1 main-grid' data-cursor="Coming soon ↗">
           <div className="work-index">
             <p className="accent">01</p>
           </div>
@@ -97,12 +100,32 @@ export default function Home() {
           />
         </a>
 
-        <a href="" className='work-container work-3 main-grid'>
+        <a  className='work-container work-3 main-grid' data-cursor="Coming soon ↗">
           <div className="work-index">
             <p className="accent">03</p>
           </div>
           <div className="work-title">
-            <h2>Pienet Koneet</h2>
+            <h2>Flyers Darts</h2>
+            <p className="accent">Visual Identity, Web Design & Development (Concept)</p>
+          </div>
+          <Image
+            src={flyers1}
+            className='flyers-main-1'
+            alt="Flyers' Website"
+          />
+          <Image
+            src={flyers2}
+            className='flyers-main-2'
+            alt="Flyers' Icon"
+          />
+        </a>
+
+        <a href="" className='work-container work-4 main-grid' data-cursor="Coming Soon ↗">
+          <div className="work-index">
+            <p className="accent">04</p>
+          </div>
+          <div className="work-title">
+            <h2>YLE- Pienet Koneet</h2>
             <p className="accent">Motion Design, Stop-Motion</p>
           </div>
           <div className="pienet-koneet-main">
@@ -114,9 +137,9 @@ export default function Home() {
           </div>
         </a>
 
-        <a href="" className='work-container work-4 main-grid'>
+        <a href="" className='work-container work-5 main-grid' data-cursor="Coming Soon ↗">
           <div className="work-index">
-            <p className="accent">04</p>
+            <p className="accent">05</p>
           </div>
           <div className="work-title">
             <h2>Blumaan</h2>
@@ -131,9 +154,9 @@ export default function Home() {
           </div>
         </a>
 
-        <a href="" className='work-container work-5 main-grid'>
+        <a href="" className='work-container work-6 main-grid' data-cursor="Coming Soon ↗">
           <div className="work-index">
-            <p className="accent">05</p>
+            <p className="accent">06</p>
           </div>
           <div className="work-title">
             <h2>Illvzn x OTB</h2>

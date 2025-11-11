@@ -4,4 +4,27 @@ footer {
   display: flex;
   justify-content: space-between;
   bottom: 0;
+  align-items: center;
+  padding-top: calc(var(--padding)*3);
+}
+
+@media (max-width: 575.98px) {
+
+  footer{
+    flex-direction: column;
+    gap: calc(var(--padding)/4);
+  }
+
+  footer a.hua {
+    order: 2; /* Back to Top */
+  }
+
+  footer p:first-of-type {
+    order: 1; /* © 2021–25 */
+  }
+
+  footer p:last-of-type {
+    order: 3; /* designed + coded */
+  }
+
 }

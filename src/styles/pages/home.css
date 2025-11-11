@@ -7,18 +7,18 @@
     padding-top: calc(var(--padding)*14);
 }
 
-.selected-work{
+.selected-work {
     display: flex;
     flex-direction: column;
 }
 
-.availability-cta{
+.availability-cta {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.work{
+.work {
     display: flex;
     flex-direction: column;
     gap: calc(var(--padding)*10);
@@ -33,69 +33,232 @@
     height: auto;
 }
 
-.work-index{
-    grid-area: 1/1/2/2;;
+.work-index {
+    grid-area: 1/1/2/2;
+    ;
 }
 
-.work-title{
+.work-title {
     grid-area: 1/2/2/13;
 }
 
-.mepo-main-1{
+.mepo-main-1 {
     grid-area: 2/1/3/9;
 }
 
-.mepo-main-2{
+.mepo-main-2 {
     grid-area: 2/9/3/13;
     width: 100%;
     height: 100%;
 }
 
-.mepo-main-3{
+.mepo-main-3 {
     grid-area: 3/1/4/5;
     width: 100%;
     height: 100%;
-    
 }
 
-.mepo-main-4{
+.mepo-main-4 {
     grid-area: 3/5/4/13;
 }
 
-.kukkiva-main-1{
+.kukkiva-main-1 {
     grid-area: 2/1/3/6;
 }
 
-.kukkiva-main-2{
+.kukkiva-main-2 {
     grid-area: 2/6/3/13;
 }
 
-.kukkiva-main-3{
+.kukkiva-main-3 {
     grid-area: 3/1/4/5;
 }
 
-.kukkiva-main-4{
+.kukkiva-main-4 {
     grid-area: 3/5/4/9;
 }
 
-.kukkiva-main-5{
+.kukkiva-main-5 {
     grid-area: 3/9/4/13;
 }
 
-.pienet-koneet-main{
+.flyers-main-1 {
+    grid-area: 2/1/3/9;
+}
+
+.flyers-main-2 {
+    grid-area: 2/9/3/13;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.pienet-koneet-main {
     grid-area: 2/1/3/13;
     background-color: #115e59;
     padding: 4rem 10rem;
 }
 
-.blumaan-main{
+.blumaan-main {
     grid-area: 2/1/3/13;
     background-color: #F97316;
     padding: 4rem 10rem;
 }
 
-.illvzn-main{
+.illvzn-main {
     grid-area: 2/1/3/13;
     background-color: #FF0312;
     padding: 4rem 10rem;
+}
+
+@media (max-width: 991.98px) {
+
+    .work-index {
+        grid-area: 1/1/2/2;
+    }
+
+    .work-title {
+        grid-area: 1/2/2/8;
+    }
+
+    .mepo-main-1 {
+        grid-area: 2/1/3/6;
+    }
+
+    .mepo-main-2 {
+        grid-area: 2/6/3/9;
+    }
+
+    .mepo-main-3 {
+        grid-area: 3/1/4/4;
+    }
+
+    .mepo-main-4 {
+        grid-area: 3/4/4/9;
+    }
+
+    .kukkiva-main-1 {
+        grid-area: 2/1/3/4;
+    }
+
+    .kukkiva-main-2 {
+        grid-area: 2/4/3/9;
+    }
+
+    .kukkiva-main-3 {
+        grid-area: 3/1/4/3;
+    }
+
+    .kukkiva-main-4 {
+        grid-area: 3/3/4/6;
+    }
+
+    .kukkiva-main-5 {
+        grid-area: 3/6/4/9;
+    }
+
+    .flyers-main-1 {
+        grid-area: 2/1/3/6;
+    }
+
+    .flyers-main-2 {
+        grid-area: 2/6/3/9;
+    }
+
+    .pienet-koneet-main {
+        grid-area: 2/1/3/9;
+        background-color: #115e59;
+        padding: 2rem 2rem;
+    }
+
+    .blumaan-main {
+        grid-area: 2/1/3/9;
+        background-color: #F97316;
+        padding: 2rem 2rem;
+    }
+
+    .illvzn-main {
+        grid-area: 2/1/3/9;
+        background-color: #FF0312;
+        padding: 2rem 2rem;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .work {
+        gap: calc(var(--padding)*6);
+    }
+
+    .work-index {
+        grid-area: 1/1/2/2;
+    }
+
+    .work-title {
+        grid-area: 1/2/2/5;
+    }
+
+    .mepo-main-1 {
+        grid-area: 2/1/3/5;
+    }
+
+    .mepo-main-2 {
+        grid-area: 3/1/4/5;
+    }
+
+    .mepo-main-3 {
+        grid-area: 4/1/5/5;
+    }
+
+    .mepo-main-4 {
+        grid-area: 5/1/6/5;
+    }
+
+    .kukkiva-main-1 {
+        grid-area: 2/1/3/3;
+    }
+
+    .kukkiva-main-2 {
+        grid-area: 3/1/4/5;
+    }
+
+    .kukkiva-main-3 {
+        grid-area: 2/3/3/5;
+    }
+
+    .kukkiva-main-4 {
+        grid-area: 4/1/5/3;
+    }
+
+    .kukkiva-main-5 {
+        grid-area: 4/3/5/5;
+    }
+
+    .flyers-main-1 {
+        grid-area: 2/1/3/5;
+    }
+
+    .flyers-main-2 {
+        grid-area: 3/1/4/5;
+    }
+
+    .pienet-koneet-main {
+        grid-area: 2/1/3/5;
+        background-color: #115e59;
+        padding: 1rem 1rem;
+    }
+
+    .blumaan-main {
+        grid-area: 2/1/3/5;
+        background-color: #F97316;
+        padding: 1rem 1rem;
+    }
+
+    .illvzn-main {
+        grid-area: 2/1/3/5;
+        background-color: #FF0312;
+        padding: 1rem 1rem;
+    }
+
 }

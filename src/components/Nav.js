@@ -6,6 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LocalTime from "./LocalTime";
 
+import { gsap } from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+gsap.registerPlugin(ScrambleTextPlugin);
+
 export default function Nav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -27,19 +31,54 @@ export default function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+  const huaElements = document.querySelectorAll(".hua");
+
+  const handlers = [];
+
+  huaElements.forEach(el => {
+    const originalText = el.textContent;
+
+    const handler = () => {
+      gsap.to(el, {
+        duration: 0.5,
+        scrambleText: {
+          text: originalText,
+          chars: "►",
+          speed: 1,
+          tweenLength: false
+        },
+        ease: "power1.out",
+      });
+    };
+
+    el.addEventListener("mouseenter", handler);
+    handlers.push({ el, handler });
+  });
+
+  // Cleanup on unmount
+  return () => {
+    handlers.forEach(({ el, handler }) => {
+      el.removeEventListener("mouseenter", handler);
+    });
+  };
+}, []);
+
+
+
   return (
     <>
       <header>
         <nav className="nav-default main-grid">
           <Link href="/" className="header-logo">
-            <Image priority src={devanshOhriLogo} alt="devansh ohri logo" as="image"/>
+            <Image priority src={devanshOhriLogo} alt="devansh ohri logo" as="image" />
           </Link>
 
           {isHome && (
             <div className="hero-text">
               <h1>
-                I’m a Finland-based digital designer focused on creating digital
-                experiences — websites, apps, platforms, and everything in
+                I’m a multidisciplinary designer based in Finland focused on creating visual
+                experiences — indentities, websites, interfaces, and everything in
                 between.
               </h1>
             </div>
@@ -64,7 +103,7 @@ export default function Nav() {
             <Link href="/information" className="hua">Information</Link>
           </div>
           <div className="nav-default-time">
-            <p><LocalTime /> HEL, FI</p>
+            <p><LocalTime /> HEL,FI</p>
           </div>
         </nav>
       </header>
@@ -83,12 +122,12 @@ export default function Nav() {
           </div>
           <div className="nav-fixed-info">
             <Link href="/information" className="hua">Information</Link>
-          </div>  
+          </div>
           <div className="nav-fixed-time">
             <p><LocalTime /> HEL, FI</p>
           </div>
         </div>
-        <hr className="hr-nav"/>
+        <hr className="hr-nav" />
       </nav>
     </>
   );
