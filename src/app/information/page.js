@@ -12,14 +12,11 @@ export default function Information() {
 
           <div className="info-hero-text">
             <h1>
-              I’m Devansh, a multidisciplinary designer based in Finland focused on crafting visual experiences 
-              that leave a lasting impression. I work across brand identity, UI/UX, and motion design — creating thoughtful, 
-              memorable work that connects with people and resonates beyond first glance.
+              {"I'm Devansh, a multidisciplinary designer based in Finland focused on crafting visual experiences that leave a lasting impression. I work across brand identity, UI/UX, and motion design — creating thoughtful, memorable work that connects with people and resonates beyond first glance."}
             </h1>
             <br />
             <h1>
-             I believe good design transcends tools and mediums. Whether I'm coding, building in 3D, or behind a camera, 
-             I focus on what will best bring an idea to life and create something memorable.
+             {"I believe good design transcends tools and mediums. Whether I'm coding, building in 3D, or behind a camera, I focus on what will best bring an idea to life and create something memorable."}
             </h1>
           </div>
 
@@ -83,10 +80,10 @@ export default function Information() {
             </div>
           </div>
 
-          <div className="info-image" data-cursor="*person in the image is not as serious as he appears">
+          <div className="info-image" data-cursor="person in the image is not as serious as he appears">
             <Image
              src={devansh}
-             alt="devansh ohri's very serious portrait"
+             alt={"devansh ohri's very serious portrait"}
            />           
           </div>
         </section>
