@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
 * {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -31,11 +34,10 @@
   src: url('/fonts/PPNeueMontreal/OTF/PPNeueMontreal-Bold.otf') format('opentype');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
 
-  --primary: #ffffff;
+  --primary: #fafafa;
   --secondary: #0a0a0a;
   --accent: #737373;
   --light-accent: #D9D9D9;
@@ -282,13 +284,6 @@ body:has([data-cursor]:hover) .cursor {
 /* DO NOT set initial opacity to 0 - GSAP handles this */
 
 /* Smooth transition for work items on hover */
-.work-container {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.work-container:hover {
-  transform: translateY(-8px);
-}
 
 /* Optional: Add subtle blur effect during animation */
 @keyframes unblur {

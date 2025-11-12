@@ -2,6 +2,7 @@ import '../styles/pages/home.css';
 import VideoPlayer from '../components/video-component';
 import Image from 'next/image';
 import Nav from '@/components/Nav';
+import CurrentMonth from '@/components/CurrentMonth';
 
 
 import mepomain1 from '@/images/mepo/main/mepo-main-1.webp';
@@ -20,8 +21,9 @@ import flyers2 from '@/images/flyers/flyers-main-2.webp'
 
 export default function Home() {
   return (
-    <div className="container">
+    <main>
       <Nav />
+    <div className="container">
       <div className="hero-footer">
         <div className="selected-work">
           <p className="work-number">(06)</p>
@@ -29,7 +31,7 @@ export default function Home() {
         </div>
         <div className="availability-cta">
           <a href="mailto:devanshohri@gmail.com" className="contact-button hua">Contact ↗</a>
-          <p><span className="available"></span> &nbsp; Available Dec ’25</p>
+          <p><span className="available"></span> &nbsp; Available <CurrentMonth /> </p>
         </div>
       </div>
       <hr />
@@ -170,8 +172,8 @@ export default function Home() {
             />
           </div>
         </a>
-
       </section>
     </div>
+    </main>
   );
 }

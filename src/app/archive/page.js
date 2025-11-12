@@ -14,8 +14,9 @@ import archimg006 from "@/images/archive-images/walkman.webp"
 export default function Archive() {
   return (
     <main>
+      <Nav />
       <div className="container">
-        <Nav />
+        
         <hr />
         <section className="archive main-grid">
 

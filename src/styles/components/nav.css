@@ -1,6 +1,7 @@
 nav {
   width: 100%;
   height: auto;
+  padding: var(--padding) var(--padding) 0 var(--padding);
 }
 
 .nav-default {
@@ -19,7 +20,7 @@ nav {
 .nav-default-info a{
 /* color: var(--primary);
 display: flex; */
-text-decoration: underline;
+/* text-decoration: underline; */
 }
 
 .nav-default-work a:hover,

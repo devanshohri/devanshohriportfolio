@@ -6,8 +6,8 @@ import Nav from '../../components/Nav';
 export default function Information() {
   return (
     <main>
+      <Nav />
       <div className="container">
-        <Nav />
         <section className="information main-grid">
 
           <div className="info-hero-text">

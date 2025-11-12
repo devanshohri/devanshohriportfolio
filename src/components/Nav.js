@@ -1,9 +1,12 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+
 import Image from "next/image";
 import devanshOhriLogo from "../../public/devanshohri.svg";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import LocalTime from "./LocalTime";
 
 import { gsap } from "gsap";
