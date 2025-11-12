@@ -34,7 +34,6 @@ export default function Home() {
       </div>
       <hr />
       <section className="work">
-
         <a  className='work-container work-1 main-grid' data-cursor="Coming soon ↗">
           <div className="work-index">
             <p className="accent">01</p>

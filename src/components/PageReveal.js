@@ -10,6 +10,7 @@ export default function PageReveal({ children }) {
   const loaderTextRef = useRef(null);
   const counterRef = useRef(null);
   const logoMaskRef = useRef(null);
+  const loaderContentRef = useRef(null);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -17,11 +18,20 @@ export default function PageReveal({ children }) {
     const tl = gsap.timeline({
       onComplete: () => {
         setIsAnimating(false);
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = "";
       },
     });
 
     let counter = { value: 0 };
+    
+    // Calculate the available width for movement
+    const getMovementRange = () => {
+      if (!loaderContentRef.current || !counterRef.current) return 0;
+      const containerWidth = loaderContentRef.current.offsetWidth;
+      const counterWidth = counterRef.current.offsetWidth;
+      return containerWidth - counterWidth;
+    };
+
     tl.to(counter, {
       value: 100,
       duration: 2.8,
@@ -33,6 +43,14 @@ export default function PageReveal({ children }) {
         if (logoMaskRef.current) {
           gsap.set(logoMaskRef.current, {
             width: `${100 - counter.value}%`,
+          });
+
+          // Move counter from left (0) to right (max width)
+          const movementRange = getMovementRange();
+          const xPosition = (counter.value / 100) * movementRange;
+          
+          gsap.set(counterRef.current, {
+            x: xPosition,
           });
         }
       },
@@ -63,7 +81,6 @@ export default function PageReveal({ children }) {
         y: 40,
         opacity: 0,
         duration: 0.5,
-        filter: "blur(500px)",
         ease: "power3.out",
       },
       "-=0.6"
@@ -78,7 +95,7 @@ export default function PageReveal({ children }) {
     <>
       {isAnimating && (
         <div ref={overlayRef} className="page-reveal-overlay">
-          <div className="loader-content">
+          <div ref={loaderContentRef} className="loader-content">
             <div className="logo-wrapper">
               <Image
                 src={devanshOhriLogoWhite}
@@ -87,7 +104,7 @@ export default function PageReveal({ children }) {
               {/* Mask that shrinks to reveal logo */}
               <div className="logo-mask" ref={logoMaskRef}></div>
             </div>
-            <p ref={counterRef} className="loader-counter">0</p>
+            <h1 ref={counterRef} className="loader-counter">0</h1>
           </div>
         </div>
       )}
