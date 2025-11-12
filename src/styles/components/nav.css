@@ -7,7 +7,7 @@ nav {
   grid-column-gap: var(--gutter);
   grid-row-gap: var(--gutter);
   grid-template-rows: auto auto;
-  align-items: center;
+  align-items: self-end;
 }
 
 .header-logo {
@@ -20,6 +20,14 @@ nav {
 /* color: var(--primary);
 display: flex; */
 text-decoration: underline;
+}
+
+.nav-default-work a:hover,
+.nav-default-archive a:hover,
+.nav-default-info a:hover{
+/* color: var(--primary);
+display: flex; */
+text-decoration: none;
 }
 /* 
 .nav-default-work ,

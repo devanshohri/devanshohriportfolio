@@ -3,6 +3,7 @@ import "../styles/components/nav.css";
 import "../styles/components/footer.css";
 import { ReactLenis } from "@/components/lenis"
 import CustomCursor from "@/components/CustomCursor";
+import TransitionLayout from '@/components/TransitionLayout';
 import Footer from '@/components/Footer';
 
 
@@ -17,10 +18,12 @@ export default function RootLayout({ children }) {
     <html lang="en" data-scroll-behavior="smooth">
       <ReactLenis root>
       <body>
+        <TransitionLayout>
         <div className="cursor"><p className="cursor-text"></p></div>
         <CustomCursor />
         {children}
         <Footer />
+        </TransitionLayout>
       </body>
       </ReactLenis>
     </html>

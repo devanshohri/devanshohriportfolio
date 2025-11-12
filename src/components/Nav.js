@@ -31,40 +31,41 @@ export default function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  
+
   useEffect(() => {
   const huaElements = document.querySelectorAll(".hua");
-
   const handlers = [];
 
   huaElements.forEach(el => {
     const originalText = el.textContent;
 
-    const handler = () => {
+    const handler = (e) => {
+      // Ignore touch and pen events
+      if (e.pointerType === "touch" || e.pointerType === "pen") return;
+
       gsap.to(el, {
         duration: 0.5,
         scrambleText: {
           text: originalText,
           chars: "►",
           speed: 1,
-          tweenLength: false
+          tweenLength: false,
         },
         ease: "power1.out",
       });
     };
 
-    el.addEventListener("mouseenter", handler);
+    el.addEventListener("pointerenter", handler);
     handlers.push({ el, handler });
   });
 
-  // Cleanup on unmount
   return () => {
     handlers.forEach(({ el, handler }) => {
-      el.removeEventListener("mouseenter", handler);
+      el.removeEventListener("pointerenter", handler);
     });
   };
 }, []);
-
-
 
   return (
     <>

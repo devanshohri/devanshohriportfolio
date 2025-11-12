@@ -3,6 +3,7 @@ import VideoPlayer from '../components/video-component';
 import Image from 'next/image';
 import Nav from '@/components/Nav';
 
+
 import mepomain1 from '@/images/mepo/main/mepo-main-1.webp';
 import mepomain2 from '@/images/mepo/main/mepo-main-2.webp';
 import mepomain3 from '@/images/mepo/main/mepo-main-3.webp';
