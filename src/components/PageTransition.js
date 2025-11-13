@@ -15,7 +15,7 @@ export default function PageTransition({ children }) {
     gsap.fromTo(
       ".page-content",
       { opacity: 0, y: 0 },
-      { opacity: 1, y: 0, duration: 1.125, ease: "power4.inOut", onComplete: () => {
+      { opacity: 1, y: 0, duration: 0.8, ease: "power4.inOut", onComplete: () => {
         isTransitioning.current = false;
         document.body.style.overflow = "";
       } }
@@ -29,7 +29,11 @@ export default function PageTransition({ children }) {
 
     // Fade out all elements except the clicked nav link
     const allElements = Array.from(document.body.children);
-    const elementsToFade = allElements.filter(el => !clickedLink.contains(el) && !clickedLink.isSameNode(el));
+    const elementsToFade = allElements.filter((el) => {
+      if (el.classList?.contains("cursor")) return false;
+      if (clickedLink.contains(el) || clickedLink.isSameNode(el)) return false;
+      return true;
+    });
 
     const tl = gsap.timeline({
       onComplete: () => {
