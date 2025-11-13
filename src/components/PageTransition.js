@@ -1,91 +1,90 @@
 //Fader
 
-"use client";
-import { useEffect, useRef, useCallback } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import { gsap } from "gsap";
+// "use client";
+// import { useEffect, useRef, useCallback } from "react";
+// import { usePathname, useRouter } from "next/navigation";
+// import { gsap } from "gsap";
 
-export default function PageTransition({ children }) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const isTransitioning = useRef(false)
+// export default function PageTransition({ children }) {
+//   const router = useRouter();
+//   const pathname = usePathname();
+//   const isTransitioning = useRef(false)
 
-  const revealPage = useCallback(() => {
-    // Fade in new page content
-    gsap.fromTo(
-      ".page-content",
-      { opacity: 0, y: 0 },
-      { opacity: 1, y: 0, duration: 0.5, ease: "power4.inOut", onComplete: () => {
-        isTransitioning.current = false;
-        document.body.style.overflow = "";
-      } }
-    );
-  }, []);
+//   const revealPage = useCallback(() => {
+//     // Fade in new page content
+//     gsap.fromTo(
+//       ".page-content",
+//       { opacity: 0, y: 0 },
+//       { opacity: 1, y: 0, duration: 0.5, ease: "power4.inOut", onComplete: () => {
+//         isTransitioning.current = false;
+//         document.body.style.overflow = "";
+//       } }
+//     );
+//   }, []);
 
-  const coverPage = useCallback((targetPath, clickedLink) => {
-    if (!clickedLink) return;
+//   const coverPage = useCallback((targetPath, clickedLink) => {
+//     if (!clickedLink) return;
 
-    document.body.style.overflow = "hidden";
+//     document.body.style.overflow = "hidden";
 
-    // Fade out all elements except the clicked nav link
-    const allElements = Array.from(document.body.children);
-    const elementsToFade = allElements.filter((el) => {
-      if (el.classList?.contains("cursor")) return false;
-      if (clickedLink.contains(el) || clickedLink.isSameNode(el)) return false;
-      return true;
-    });
+//     // Fade out all elements except the clicked nav link
+//     const allElements = Array.from(document.body.children);
+//     const elementsToFade = allElements.filter((el) => {
+//       if (el.classList?.contains("cursor")) return false;
+//       if (clickedLink.contains(el) || clickedLink.isSameNode(el)) return false;
+//       return true;
+//     });
 
-    const tl = gsap.timeline({
-      onComplete: () => {
-        router.push(targetPath);
-        setTimeout(revealPage, 50);
-      }
-    });
+//     const tl = gsap.timeline({
+//       onComplete: () => {
+//         router.push(targetPath);
+//         setTimeout(revealPage, 50);
+//       }
+//     });
 
-    tl.to(elementsToFade, { opacity: 0, duration: 0.6, ease: "power3.inOut" });
-  }, [router, revealPage]);
+//     tl.to(elementsToFade, { opacity: 0, duration: 0.6, ease: "power3.inOut" });
+//   }, [router, revealPage]);
 
-  const onAnchorClick = useCallback((e) => {
-    if (
-      e.metaKey ||
-      e.ctrlKey ||
-      e.shiftKey ||
-      e.altKey ||
-      e.button !== 0 ||
-      e.currentTarget.target === "_blank"
-    ) return;
+//   const onAnchorClick = useCallback((e) => {
+//     if (
+//       e.metaKey ||
+//       e.ctrlKey ||
+//       e.shiftKey ||
+//       e.altKey ||
+//       e.button !== 0 ||
+//       e.currentTarget.target === "_blank"
+//     ) return;
 
-    const href = e.currentTarget.getAttribute("href");
-    if (!href || href.startsWith("http") || href.startsWith("mailto") || href.startsWith("#")) return;
+//     const href = e.currentTarget.getAttribute("href");
+//     if (!href || href.startsWith("http") || href.startsWith("mailto") || href.startsWith("#")) return;
 
-    if (href === pathname || isTransitioning.current) {
-      e.preventDefault();
-      return;
-    }
+//     if (href === pathname || isTransitioning.current) {
+//       e.preventDefault();
+//       return;
+//     }
 
-    e.preventDefault();
-    isTransitioning.current = true;
+//     e.preventDefault();
+//     isTransitioning.current = true;
 
-    // Pass the clicked link to keep it visible
-    coverPage(href, e.currentTarget);
-  }, [pathname, coverPage]);
+//     // Pass the clicked link to keep it visible
+//     coverPage(href, e.currentTarget);
+//   }, [pathname, coverPage]);
 
-  useEffect(() => {
-    const links = document.querySelectorAll('a[href^="/"]');
-    links.forEach(link => link.addEventListener("click", onAnchorClick));
+//   useEffect(() => {
+//     const links = document.querySelectorAll('a[href^="/"]');
+//     links.forEach(link => link.addEventListener("click", onAnchorClick));
 
-    return () => links.forEach(link => link.removeEventListener("click", onAnchorClick));
-  }, [onAnchorClick]);
+//     return () => links.forEach(link => link.removeEventListener("click", onAnchorClick));
+//   }, [onAnchorClick]);
 
-  return (
-    <>
-      <div className="page-content">
-        {children}
-      </div>
-    </>
-  );
-}
-
+//   return (
+//     <>
+//       <div className="page-content">
+//         {children}
+//       </div>
+//     </>
+//   );
+// }
 
 // overlay
 
@@ -212,3 +211,132 @@ export default function PageTransition({ children }) {
 //     </>
 //   );
 // }
+
+//overlay fader
+
+"use client";
+import { useEffect, useRef, useCallback } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { gsap } from "gsap";
+import Image from "next/image";
+import devanshOhriLogo from "../../public/devanshohri.svg";
+
+export default function PageTransition({ children }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const overlayRef = useRef(null);
+  const titleRef = useRef(null);
+  const isTransitioning = useRef(false);
+
+  const getPageName = (path) => {
+    if (path === "/") return "Work";
+    if (path === "/archive") return "Archive";
+    if (path === "/information") return "Information";
+    return "Page";
+  };
+
+  const revealPage = useCallback(() => {
+    const tl = gsap.timeline({
+      onComplete: () => {
+        isTransitioning.current = false;
+        document.body.style.overflow = "";
+        gsap.set(overlayRef.current, { display: "none" });
+        gsap.set(titleRef.current, { opacity: 0 });
+      },
+    });
+
+    // Fade out page name
+    tl.to(titleRef.current, { opacity: 0, duration: 0.2, ease: "power2.inOut" });
+
+    // Fade out overlay
+    tl.to(overlayRef.current, { opacity: 0, duration: 0.5, ease: "power3.inOut" }, "-=0.1");
+
+    // Animate container content
+    tl.from(".container", {
+      y: 40,
+      opacity: 0,
+      filter: "blur(100px)",
+      duration: 0.5,
+      ease: "power3.out",
+    }, "-=0.5");
+  }, []);
+
+  const coverPage = useCallback((targetPath) => {
+    document.body.style.overflow = "hidden";
+    const pageName = getPageName(targetPath);
+    if (titleRef.current) titleRef.current.textContent = pageName;
+
+    // Prepare overlay for fade
+    gsap.set(overlayRef.current, { display: "flex", opacity: 0 });
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        router.push(targetPath);
+        setTimeout(revealPage, 50);
+      },
+    });
+
+    // Fade in overlay
+    tl.to(overlayRef.current, { opacity: 1, duration: 0.5, ease: "power3.inOut" });
+
+    // Fade in title
+    tl.to(titleRef.current, { opacity: 1, duration: 0.2, ease: "power2.out" }, "-=0.3");
+
+    // Small pause
+    tl.to({}, { duration: 0.1 });
+  }, [router, revealPage]);
+
+  const onAnchorClick = useCallback((e) => {
+    if (
+      e.metaKey ||
+      e.ctrlKey ||
+      e.shiftKey ||
+      e.altKey ||
+      e.button !== 0 ||
+      e.currentTarget.target === "_blank"
+    ) return;
+
+    const href = e.currentTarget.getAttribute("href");
+    if (!href || href.startsWith("http") || href.startsWith("mailto") || href.startsWith("#")) return;
+
+    if (href === pathname || isTransitioning.current) {
+      e.preventDefault();
+      return;
+    }
+
+    e.preventDefault();
+    isTransitioning.current = true;
+    coverPage(href);
+  }, [pathname, coverPage]);
+
+  useEffect(() => {
+    const links = document.querySelectorAll('a[href^="/"]');
+    links.forEach(link => link.addEventListener("click", onAnchorClick));
+
+    return () => links.forEach(link => link.removeEventListener("click", onAnchorClick));
+  }, [onAnchorClick]);
+
+  return (
+    <>
+      <div
+        ref={overlayRef}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "var(--primary)",
+          zIndex: 9999,
+          display: "none",
+          alignItems: "center",
+          justifyContent: "center",
+          opacity: 0,
+          padding: "var(--padding)",
+        }}
+      >
+      </div>
+      {children}
+    </>
+  );
+}

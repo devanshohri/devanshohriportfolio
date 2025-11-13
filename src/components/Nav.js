@@ -101,7 +101,7 @@ export default function Nav() {
             <Link href="/" className="hua">Work</Link>
           </div>
           <div className="nav-default-archive">
-            <Link href="/archive" className="hua">Archive</Link>
+            <Link href="/archive" className="hua" >Archive</Link>
           </div>
           <div className="nav-default-info">
             <Link href="/information" className="hua">Information</Link>
