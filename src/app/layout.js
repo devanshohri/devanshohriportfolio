@@ -19,7 +19,6 @@ export default function RootLayout({ children }) {
       <ReactLenis root>
       <body>
         <PageReveal>
-        
         <div className="cursor"><p className="cursor-text"></p></div>
         <PageTransition>
         <CustomCursor />

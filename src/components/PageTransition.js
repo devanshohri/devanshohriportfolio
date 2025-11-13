@@ -15,7 +15,7 @@ export default function PageTransition({ children }) {
     gsap.fromTo(
       ".page-content",
       { opacity: 0, y: 0 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power4.inOut", onComplete: () => {
+      { opacity: 1, y: 0, duration: 0.5, ease: "power4.inOut", onComplete: () => {
         isTransitioning.current = false;
         document.body.style.overflow = "";
       } }

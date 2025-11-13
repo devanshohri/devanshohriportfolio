@@ -34,7 +34,7 @@ export default function PageReveal({ children }) {
 
     tl.to(counter, {
       value: 100,
-      duration: 2.8,
+      duration: 1.5,
       ease: "power4.inOut",
       onUpdate: () => {
         if (counterRef.current) {
@@ -70,7 +70,7 @@ export default function PageReveal({ children }) {
     // Slide overlay up
     tl.to(overlayRef.current, {
       yPercent: -100,
-      duration: 1.2,
+      duration: 1,
       ease: "power4.inOut",
     });
 
