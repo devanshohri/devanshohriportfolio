@@ -17,6 +17,8 @@ export default function Nav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isArchive = pathname === "/archive";
+  const isInfo = pathname === "/information";
+
 
   const navRef = useRef(null);
   const [showFixed, setShowFixed] = useState(false);
@@ -98,13 +100,13 @@ export default function Nav() {
           )}
 
           <div ref={navRef} className="nav-default-work">
-            <Link href="/" className="hua">Work</Link>
+            <Link href="/" className={`hua ${isHome ? "active" : ""}`}>Work</Link>
           </div>
           <div className="nav-default-archive">
-            <Link href="/archive" className="hua" >Archive</Link>
+            <Link href="/archive" className={`hua ${isArchive ? "active" : ""}`}>Archive</Link>
           </div>
           <div className="nav-default-info">
-            <Link href="/information" className="hua">Information</Link>
+            <Link href="/information" className={`hua ${isInfo ? "active" : ""}`}>Information</Link>
           </div>
           <div className="nav-default-time">
             <p><LocalTime /> HEL,FI</p>
@@ -119,13 +121,13 @@ export default function Nav() {
           </div>
 
           <div className="nav-fixed-work">
-            <Link href="/" className="hua">Work</Link>
+            <Link href="/" className={`hua ${isHome ? "active" : ""}`}>Work</Link>
           </div>
           <div className="nav-fixed-archive">
-            <Link href="/archive" className="hua">Archive</Link>
+            <Link href="/archive" className={`hua ${isArchive ? "active" : ""}`}>Archive</Link>
           </div>
           <div className="nav-fixed-info">
-            <Link href="/information" className="hua">Information</Link>
+            <Link href="/information" className={`hua ${isInfo ? "active" : ""}`}>Information</Link>
           </div>
           <div className="nav-fixed-time">
             <p><LocalTime /> HEL, FI</p>

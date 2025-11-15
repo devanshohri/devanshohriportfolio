@@ -187,6 +187,11 @@ body:has([data-cursor]:hover) .cursor {
   color: var(--primary);
 }
 
+.hua.active {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
 .video-container {
   height: 100%;
   aspect-ratio: auto;
